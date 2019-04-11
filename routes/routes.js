@@ -41,7 +41,7 @@ router.put('/isPinned', Middleware.checkTokenAuthentication, noteController.isPi
 router.put('/uploadImage', Middleware.checkTokenAuthentication, noteController.updateImage);
 router.post('/saveLabelToNote',  Middleware.checkTokenAuthentication,noteController.saveLabelToNote)
 router.post('/deleteLabelToNote',  Middleware.checkTokenAuthentication,noteController.deleteLabelToNote)
-router.post('/addLabels', Middleware.checkTokenAuthentication, noteController.addLabel)
+router.post('/addLabel', Middleware.checkTokenAuthentication, noteController.addLabel)
 router.get('/getLabels', Middleware.checkTokenAuthentication, noteController.getLabels)
 router.post('/deleteLabels', Middleware.checkTokenAuthentication, noteController.deleteLabel)
 router.put('/updateLabels',  Middleware.checkTokenAuthentication, noteController.updateLabel)

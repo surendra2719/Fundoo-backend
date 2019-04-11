@@ -495,6 +495,8 @@ exports.saveLabelToNote = (req, res) => {
         var responseResult = {};
             noteID = req.body.noteID
             noteService.saveLabelToNote( req.body, (err, result) => {
+                console.log("result in controller------->",result);
+                
                 if (err) {
 
                     responseResult.status = false;

@@ -41,17 +41,17 @@ const NoteSchema = mongoose.Schema({
     trash: {
         type: Boolean,
     },
-    label: {
+    label: [{
         type: String,
+        ref: 'labeSchema',
      
-       
-    }
+    }]
 },
     {
         timestamps: true
     });
 
-    
+
 const Note = mongoose.model('note', NoteSchema);
 
 class noteModel { }
@@ -192,8 +192,8 @@ noteModel.prototype.deleteNoteModel = (req, res) => {
     })
 }
 noteModel.prototype.editTitle = (paramID, paramData, res) => {
-    console.log("paranID",paramID);
-    
+    console.log("paranID", paramID);
+
     Note.findOneAndUpdate(
         {
             _id: paramID
@@ -208,20 +208,20 @@ noteModel.prototype.editTitle = (paramID, paramData, res) => {
                 res(err)
             } else {
 
-                return res(null,paramData)
+                return res(null, paramData)
             }
         });
 }
 noteModel.prototype.editDescription = (paramID, paramData, res) => {
-    
+
     Note.findOneAndUpdate(
         {
-            _id:paramID
-            
+            _id: paramID
+
         },
         {
             $set: {
-                description:paramData,
+                description: paramData,
             }
         },
         (err, result) => {
@@ -229,7 +229,7 @@ noteModel.prototype.editDescription = (paramID, paramData, res) => {
                 res(err)
             } else {
 
-                return res(null,paramData)
+                return res(null, paramData)
             }
         });
 }
@@ -241,8 +241,8 @@ noteModel.prototype.isPinned = (noteID, pinParams, callback) => {
         },
         {
             $set: {
-                pinned:pinParams,
-                trash:false,
+                pinned: pinParams,
+                trash: false,
                 archive: false
             }
         },
@@ -257,8 +257,8 @@ noteModel.prototype.isPinned = (noteID, pinParams, callback) => {
 };
 noteModel.prototype.updateImage = (noteID, updateNote, callback) => {
     Note.findOneAndUpdate({
-            _id: noteID
-        }, {
+        _id: noteID
+    }, {
             $set: {
                 image: updateNote
             }
@@ -272,9 +272,9 @@ noteModel.prototype.updateImage = (noteID, updateNote, callback) => {
             }
         });
 };
+
 noteModel.prototype.saveLabelToNote = (labelParams, callback) => {
     console.log("in model", labelParams.noteID);
-
     var labelledNote = null;
     var noteID = null;
     if (labelParams != null) {
@@ -285,7 +285,6 @@ noteModel.prototype.saveLabelToNote = (labelParams, callback) => {
 
         callback("Pinned note not found")
     }
-
     Note.findOneAndUpdate(
         {
             _id: noteID
@@ -300,37 +299,19 @@ noteModel.prototype.saveLabelToNote = (labelParams, callback) => {
                 callback(err)
             } else {
                 console.log("in model success");
-
                 let res = result.label;
                 res.push(labelledNote);
                 return callback(null, res)
             }
         });
-}
-
-var labelSchema = new mongoose.Schema({
-    userID: {
-        type: Schema.Types.ObjectId,
-        ref: 'UserSchema'
-    },
-    label: {
-        type: String,
-        require: [true, "Label require"],
-        unique: true
-    }
-},{
-    timestamps:true
-}
-)
-// var label = mongoose.model('Label', labelSchema);
-
-// function labelModel() {
-
-// }
-
+};
+/**
+* 
+* @param {*} labelParams 
+* @param {*} callback 
+*/
 noteModel.prototype.deleteLabelToNote = (labelParams, callback) => {
     console.log("in model", labelParams.noteID);
-
     var labelledNote = null;
     var noteID = null;
     if (labelParams != null) {
@@ -341,8 +322,7 @@ noteModel.prototype.deleteLabelToNote = (labelParams, callback) => {
 
         callback("Pinned note not found")
     }
-
-    label.findOneAndUpdate(
+    Note.findOneAndUpdate(
         {
             _id: noteID
         },
@@ -356,8 +336,7 @@ noteModel.prototype.deleteLabelToNote = (labelParams, callback) => {
                 callback(err)
             } else {
                 let newArray = result.label;
-                console.log("in model success result",result);
-
+                console.log("in model success result-------------->", result);
                 for (let i = 0; i < newArray.length; i++) {
                     if (newArray[i] === labelledNote) {
                         newArray.splice(i, 1);
@@ -366,7 +345,24 @@ noteModel.prototype.deleteLabelToNote = (labelParams, callback) => {
                 }
             }
         });
-}
+};
+
+var labelSchema = new mongoose.Schema({
+    userID: {
+        type: Schema.Types.ObjectId,
+        ref: 'UserSchema'
+    },
+    label: {
+        type: String,
+        require: [true, "Label require"],
+        unique: true
+    }
+}, {
+        timestamps: true
+    }
+)
+var label = mongoose.model('Label', labelSchema);
+
 noteModel.prototype.addLabel = (labelData, callback) => {
     console.log("ultimate save", labelData);
 
@@ -385,13 +381,13 @@ noteModel.prototype.addLabel = (labelData, callback) => {
 
 
 noteModel.prototype.getLabels = (id, callback) => {
-    console.log("in model", id);
+    //console.log("in model", id);
 
     label.find({ userID: id.userID }, (err, result) => {
         if (err) {
             callback(err)
         } else {
-            console.log("labels", result)
+            //console.log("labels", result)
             return callback(null, result)
         }
     })
@@ -410,14 +406,14 @@ noteModel.prototype.deleteLabel = (id, callback) => {
     })
 }
 
-noteModel.prototype.updateLabel = ( changedLabel, callback) => {
+noteModel.prototype.updateLabel = (changedLabel, callback) => {
     var editLabel = null;
     var labelId = null;
-    console.log("in model",changedLabel);
+    console.log("in model", changedLabel);
 
     if (changedLabel != null) {
         editLabel = changedLabel.editLabel;
-        labelId=changedLabel.labelID
+        labelId = changedLabel.labelID
     } else {
         callback("Pinned note not found")
     }
