@@ -7,7 +7,7 @@
  * @since   : 18/02/2019 
 ************************************************************************************************/
 /**
- * Defining the express,router,userController and Middleware through const
+ * Defining the express,router,userController and Middleware through const keyword
  */
 const express = require('express');
 const router = express.Router();
