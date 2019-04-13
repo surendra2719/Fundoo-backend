@@ -89,11 +89,7 @@ exports.checkTokenAuthentication = (req, res, next) => {
         });
     }
     else {
-        /**
-         *  if there is no token return an error
-         */
-    
-         
+ 
         return res.send({
         
             success: false,
