@@ -335,6 +335,87 @@ describe('Status and content', function () {
                                                                                                                                             })
 
                                                                                                                                         })
+                                                                                                                                        describe('pinned', function () {
+                                                                                                                                            /**
+                                                                                                                                             * Declaring describe function with name of the functionality and callback function
+                                                                                                                                             */
+                                                                                                                                            var requestBody = readFile()
+                                                                                                                                            /**
+                                                                                                                                             * Acessesing the requiring data from JSON file through readfile()
+                                                                                                                                             */
+                                                                                                                                            it('status', function (done) {
+                                                                                                                                                chai.request(server).put('/isPinned')
+                                                                                                                                                    /**
+                                                                                                                                                     *Sending the data containing resetpassworddata data
+                                                                                                                                                     */
+                                                                                                                                                    .send(requestBody.pinned)
+                                                                                                                                                    .end((err, res) => {
+                                                                                                                                                        if (err) {
+                                                                                                                                                            console.log("error in ending");
+                                                                                                                                                        }
+                                                                                                                                                        else {
+                                                                                                                                                            // console.log("responce in test", res.body);
+                                                                                                                                                            res.should.have.status(200);
+                                                                                                                                                        }
+                                                                                                                                                        done();
+                                                                                                                                                    })
+                                                                                                                                            })
+
+                                                                                                                                        })
+                                                                                                                                        describe('image', function () {
+                                                                                                                                            /**
+                                                                                                                                             * Declaring describe function with name of the functionality and callback function
+                                                                                                                                             */
+                                                                                                                                            var requestBody = readFile()
+                                                                                                                                            /**
+                                                                                                                                             * Acessesing the requiring data from JSON file through readfile()
+                                                                                                                                             */
+                                                                                                                                            it('status', function (done) {
+                                                                                                                                                chai.request(server).put('/uploadImage')
+                                                                                                                                                    /**
+                                                                                                                                                     *Sending the data containing resetpassworddata data
+                                                                                                                                                     */
+                                                                                                                                                    .send(requestBody.image)
+                                                                                                                                                    .end((err, res) => {
+                                                                                                                                                        if (err) {
+                                                                                                                                                            console.log("error in ending");
+                                                                                                                                                        }
+                                                                                                                                                        else {
+                                                                                                                                                            // console.log("responce in test", res.body);
+                                                                                                                                                            res.should.have.status(200);
+                                                                                                                                                        }
+                                                                                                                                                        done();
+                                                                                                                                                    })
+                                                                                                                                            })
+
+                                                                                                                                        })
+                                                                                                                                        describe('profilepic', function () {
+                                                                                                                                            /**
+                                                                                                                                             * Declaring describe function with name of the functionality and callback function
+                                                                                                                                             */
+                                                                                                                                            var requestBody = readFile()
+                                                                                                                                            /**
+                                                                                                                                             * Acessesing the requiring data from JSON file through readfile()
+                                                                                                                                             */
+                                                                                                                                            it('status', function (done) {
+                                                                                                                                                chai.request(server).put('/setProfilePic')
+                                                                                                                                                    /**
+                                                                                                                                                     *Sending the data containing resetpassworddata data
+                                                                                                                                                     */
+                                                                                                                                                    .send(requestBody.profilepic)
+                                                                                                                                                    .end((err, res) => {
+                                                                                                                                                        if (err) {
+                                                                                                                                                            console.log("error in ending");
+                                                                                                                                                        }
+                                                                                                                                                        else {
+                                                                                                                                                            // console.log("responce in test", res.body);
+                                                                                                                                                            res.should.have.status(200);
+                                                                                                                                                        }
+                                                                                                                                                        done();
+                                                                                                                                                    })
+                                                                                                                                            })
+
+                                                                                                                                        })
                                                                                                                                         done();
                                                                                                                                     })
                                                                                                                             })

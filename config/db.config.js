@@ -7,5 +7,6 @@
  * @since   : 18/02/2019 
 ************************************************************************************************/
 module.exports = {
-    url: 'mongodb://localhost:27017/fundoapp'
+    // url: 'mongodb:/172.31.41.55:27017/fundoapp'
+    url: 'mongodb:/localhost:27017/fundoapp'
 }
