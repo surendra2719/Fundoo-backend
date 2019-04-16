@@ -75,39 +75,39 @@ exports.login = (req, res) => {
         responseResult.error = errors
         res.status(500).send(responseResult);
     }
-    else {
-        try {
+    // else {
+    //     try {
 
 
-            const app = express();
+    //         const app = express();
 
-            // create and connect redis client to local instance.
-            const client = redis.createClient();
+    //         // create and connect redis client to local instance.
+    //         const client = redis.createClient();
 
-            // Print redis errors to the console
-            client.on('error', (err) => {
-                console.log("Error " + err);
-            });
+    //         // Print redis errors to the console
+    //         client.on('error', (err) => {
+    //             console.log("Error " + err);
+    //         });
 
-            app.use(responseTime());
+    //         app.use(responseTime());
 
-            // Extract the query from url and trim trailing spaces
-            // const query = (req.body.email+req.body._id).trim();
-            // Build the Wikipedia API url
+    //         // Extract the query from url and trim trailing spaces
+    //         // const query = (req.body.email+req.body._id).trim();
+    //         // Build the Wikipedia API url
 
-            const redisKey = req.body.email;
-            // Try fetching the result from Redis first in case we have it cached
-            return client.get(redisKey, (err, result) => {
-                // If that key exist in Redis store
-                // console.log("result==>", result);
-                // console.log("hasi");
+    //         const redisKey = req.body.email;
+    //         // Try fetching the result from Redis first in case we have it cached
+    //         return client.get(redisKey, (err, result) => {
+    //             // If that key exist in Redis store
+    //             // console.log("result==>", result);
+    //             // console.log("hasi");
 
 
-                if (result) {
-                    console.log('result' + result);
-                    const resultJSON = JSON.parse(result);
-                    return res.status(200).send(resultJSON);
-                }
+    //             if (result) {
+    //                 console.log('result' + result);
+    //                 const resultJSON = JSON.parse(result);
+    //                 return res.status(200).send(resultJSON);
+    //             }
                 else {
 
                     var responseResult = {}
@@ -135,22 +135,23 @@ exports.login = (req, res) => {
                             const obj = util.GenerateTokenForAunthentication(payload);
                      
                             responseResult.token = obj
-                            client.setex(redisKey, 36000, JSON.stringify(responseResult.token.token));
+                           // client.setex(redisKey, 36000, JSON.stringify(responseResult.token.token));
                             res.status(200).send(responseResult.token.token)
 
                         }
                     })
-                }
+                    
+                     }
 
 
-            })
+        //   })
+        // }
+        // catch (err) {
+            // console.log('errors in controllers', err);
+
         }
-        catch (err) {
-            console.log('errors in controllers', err);
-
-        }
-    }
-}
+    // }
+// }
 
 
 
@@ -297,7 +298,7 @@ exports.getAllUsers = (req, res) => {
 exports.setProfilePic = (req, res) => {
     try {
         console.log("req-------------------->",req.decoded);
-        // console.log("req-------------------->",req.file.location)
+
         var responseResult = {};
         userId = req.decoded.payload.user_id;
         let image = (req.file.location)
