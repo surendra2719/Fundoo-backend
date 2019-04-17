@@ -2,15 +2,15 @@
     "regisrartiondata": {
         "firstName": "surendra",
         "lastName": "surendra",
-        "email": "asfddfdl3........................@asssssssssssssssssssdgmail.com",
+        "email": "fwdwdwsdwdswdwdwd@bgmail.com",
         "password": "zx12345cvbn"
     },
     "logindata": {
-        "email": "asfddfdl3........................@asssssssssssssssssssdgmail.com",
+        "email": "fwdwdwsdwdswdwdwd@bgmail.com",
         "password": "zx12345cvbn"
     },
     "verifyUserdata": {
-        "email": "asfddfdl3........................@asssssssssssssssssssdgmail.com"
+        "email": "fwdwdwsdwdswdwdwd@bgmail.com"
     },
     "resetpassworddata": {
         "password": "12345",
@@ -61,13 +61,41 @@
     },
     "pinned": {
         "noteID": "5c921cfdeb63e6396d9fe398"
-       
     },
     "image": {
         "noteID": "5c921cfdeb63e6396d9fe398"
-       
     },
-    "profilepic":{
-        "userId":"5c88fe3594404855a551ae6d"
-    }
+    "profilepic": {
+        "userId": "5c88fe3594404855a551ae6d"
+    },
+    "uploadImage": {
+        "noteID": "5c921cfdeb63e6396d9fe398",
+        "headers": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOiI1Yzg4ZmUzNTk0NDA0ODU1YTU1MWFlNmQiLCJzdWNlc3NlcyI6dHJ1ZSwiZW1haWwiOiJzdXJlbmRyYUBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJzdXJlbmRyYSJ9LCJpYXQiOjE1NTMzMTc1MjksImV4cCI6MTU1MzQwMzkyOX0.xW1IDBOyqy6dCjimnW1c48noiD_RZRXiSNxsSo5eXr0",
+        "image": "surendra.jpg"
+    },
+    "deleteLabelToNote": {
+        "noteID": "5c921cfdeb63e6396d9fe398",
+        "label": "surendra"
+    },
+    "saveLabelToNote": {
+        "noteID": "5c921cfdeb63e6396d9fe398",
+        "label": "surendra"
+    },
+    "addLabel": {
+        "userId": "5c88fe3594404855a551ae6d",
+        "headers": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOiI1Yzg4ZmUzNTk0NDA0ODU1YTU1MWFlNmQiLCJzdWNlc3NlcyI6dHJ1ZSwiZW1haWwiOiJzdXJlbmRyYUBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJzdXJlbmRyYSJ9LCJpYXQiOjE1NTMzMTc1MjksImV4cCI6MTU1MzQwMzkyOX0.xW1IDBOyqy6dCjimnW1c48noiD_RZRXiSNxsSo5eXr0",
+        "label": "surendra"
+    },
+    "getLabels": {
+        "userId": "5c88fe3594404855a551ae6d",
+        "headers": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOiI1Yzg4ZmUzNTk0NDA0ODU1YTU1MWFlNmQiLCJzdWNlc3NlcyI6dHJ1ZSwiZW1haWwiOiJzdXJlbmRyYUBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJzdXJlbmRyYSJ9LCJpYXQiOjE1NTMzMTc1MjksImV4cCI6MTU1MzQwMzkyOX0.xW1IDBOyqy6dCjimnW1c48noiD_RZRXiSNxsSo5eXr0"
+    } ,
+    "deleteLabel": {
+        "labelID": "5caf041a5da8434077af0c81",
+        "headers": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOiI1Yzg4ZmUzNTk0NDA0ODU1YTU1MWFlNmQiLCJzdWNlc3NlcyI6dHJ1ZSwiZW1haWwiOiJzdXJlbmRyYUBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJzdXJlbmRyYSJ9LCJpYXQiOjE1NTMzMTc1MjksImV4cCI6MTU1MzQwMzkyOX0.xW1IDBOyqy6dCjimnW1c48noiD_RZRXiSNxsSo5eXr0"
+        },
+        "updateLabel": {
+            "labelID": "5caf041a5da8434077af0c81",
+            "editLabel": "hi hlo"
+            }
 }

@@ -8,6 +8,7 @@
 ************************************************************************************************/
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+mongoose.set('useCreateIndex', true);
 const NoteSchema = mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -311,7 +312,7 @@ noteModel.prototype.saveLabelToNote = (labelParams, callback) => {
 * @param {*} callback 
 */
 noteModel.prototype.deleteLabelToNote = (labelParams, callback) => {
-    console.log("in model", labelParams.noteID);
+    console.log("in model", labelParams);
     var labelledNote = null;
     var noteID = null;
     if (labelParams != null) {

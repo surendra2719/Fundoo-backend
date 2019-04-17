@@ -12,6 +12,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+mongoose.set('useCreateIndex', true);
 const UserSchema = mongoose.Schema({
     firstName: {
         type: String, required: [true, 'First name required']
